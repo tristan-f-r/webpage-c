@@ -26,21 +26,11 @@ jobs:
       - name: Upload built project output
         uses: actions/upload-artifact@v3
         with:
-            name: build
-            path: build
-  pages:
-    needs: checks
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Download Artifacts
-        uses: actions/download-artifact@v3
-      - name: Sync deployment
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          name: build
+          path: build
+      - name: Upload to SFTP
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: pnpm run sftp
