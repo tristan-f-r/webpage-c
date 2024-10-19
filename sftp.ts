@@ -36,12 +36,12 @@ sftp
 
 			console.log(`Creating directory on SFTP for ${newFile}..`);
 			await sftp
-				.mkdir(path.dirname(path.join(cwd, newFile)), true)
+				.mkdir(path.dirname(path.join(cwd, 'html', newFile)), true)
 				.catch(() => console.error('An error occurred while making a directory'));
 
 			console.log(`Creating file on SFTP for ${newFile}..`);
 			await sftp
-				.put(await fs.readFile(file), path.join(cwd, newFile))
+				.put(await fs.readFile(file), path.join(cwd, 'html', newFile))
 				.catch(() => console.error('An error occurred while making a file'));
 		}
 		return sftp.end();
