@@ -1,3 +1,4 @@
-# r-webpage
+# webpage
 
-like my webpage, but for research
+academia-dedicated webpage
+
