@@ -10,6 +10,7 @@
 			<h1>Tristan Figueroa-Reid</h1>
 			<div class="links">
 				<a href="https://www.linkedin.com/in/tristan-reid/">LinkedIn</a>
+				<a href="https://github.com/tristan-f-r">GitHub</a>
 			</div>
 		</nav>
 
